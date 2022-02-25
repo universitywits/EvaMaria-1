@@ -232,6 +232,20 @@ async def start(client, message):
         protect_content=True if pre == 'filep' else False,
         )
                     
+@Client.on_message(filters.command("st"))
+async def st(bot, message):
+    text ="""
+total = await Media.count_documents()
+users = await db.total_users_count()
+chats = await db.total_chat_count()
+monsize = await db.get_db_size()
+free = 536870912 - monsize
+monsize = get_size(monsize)
+free = get_size(free)"""
+
+
+    await message.reply_text(text=text)
+
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
