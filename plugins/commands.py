@@ -234,7 +234,7 @@ async def start(client, message):
                     
 @Client.on_message(filters.command("st"))
 async def st(bot, message):
-    text ="""
+    text =f"""
 total = await Media.count_documents()
 users = await db.total_users_count()
 chats = await db.total_chat_count()
