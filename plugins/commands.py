@@ -375,6 +375,18 @@ async def total(bot, message):
         await msg.edit(f'Error: {e}')
 
 
+@Client.on_message(filters.private & filters.command("stats"))
+async def sts(c, m):
+    if m.from_user.id not in ADMIN_ID:
+        await m.delete()
+        return
+    await m.reply_text(
+        text=f"**Total Users in Database 📂:** `{await db.total_users_count()}`\n\n**Total Users with Notification Enabled 🔔 :** `{await db.total_notif_users_count()}`",
+        parse_mode="Markdown",
+        quote=True
+    )
+
+
 @Client.on_message(filters.command('settings'))
 async def settings(client, message):
     userid = message.from_user.id if message.from_user else None
