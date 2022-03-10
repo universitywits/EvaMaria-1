@@ -18,6 +18,8 @@ logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
 
+ADMIN_ID = set(int(x) for x in os.environ.get("ADMIN_ID", "").split())
+
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
@@ -377,7 +379,7 @@ async def total(bot, message):
 
 @Client.on_message(filters.private & filters.command("stats"))
 async def sts(c, m):
-    if m.from_user.id not in ADMINS:
+    if m.from_user.id not in ADMIN_ID:
         await m.delete()
         return
     await m.reply_text(
