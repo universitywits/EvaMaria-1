@@ -377,7 +377,7 @@ async def total(bot, message):
 
 @Client.on_message(filters.private & filters.command("stats"))
 async def sts(c, m):
-    if m.from_user.id not in ADMIN_ID:
+    if m.from_user.id not in ADMINS:
         await m.delete()
         return
     await m.reply_text(
