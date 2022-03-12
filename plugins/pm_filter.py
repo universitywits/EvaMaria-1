@@ -412,7 +412,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "tip2": 
         await query.answer(f" • ബ്രോ ഇതിലല്ല 😃 \n\n • താഴെ വരുന്ന മൂവി ലിസ്റ്റിലാണ് ഞെക്കേണ്ടത്😁",show_alert=True)
     elif query.data == "tip1": 
-        await query.answer(f" • ബ്രോ ഇതിലല്ല 😃 \n\n • താഴെ വരുന്ന മൂവി ലിസ്റ്റിലാണ് ഞെക്കേണ്ടത്😁",show_alert=True)
+        await query.answer(f"""<b>🏷 Title</b>: <a href={url}>{title}</a>
+🎭 Genres: {genres}
+📆 Year: <a href={url}/releaseinfo>{year}</a>
+🌟 Rating: <a href={url}/ratings>{rating}</a> / 10 (based on {votes} user ratings.)""",show_alert=True)
 
 #boutton new add akkiye
     elif query.data == "pages":
