@@ -30,6 +30,15 @@ BUTTONS = {}
 SPELL_CHECK = {}
 
 
+IMDB_TEMPLATE = """<b>🏷 Title</b>: <a href={url}>{title}</a>
+🎭 Genres: {genres}
+📆 Year: <a href={url}/releaseinfo>{year}</a>
+🌟 Rating: <a href={url}/ratings>{rating}</a> / 10 (based on {votes} user ratings.)
+☀️ Languages : <code>{languages}</code>
+📀 RunTime: {runtime} Minutes
+📆 Release Info : {release_date}
+"""
+
 @Client.on_message(filters.group & filters.text & ~filters.edited & filters.incoming)
 async def give_filter(client, message):
     k = await manual_filters(client, message)
