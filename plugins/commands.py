@@ -19,7 +19,10 @@ logger = logging.getLogger(__name__)
 BATCH_FILES = {}
 
 ADMIN_ID = set(int(x) for x in os.environ.get("ADMIN_ID", "").split())
-
+@Client.on_message(filters.private & filters.command(['start']))
+async def start(bot, message):
+    await msg.reply_sticker(
+        sticker="CAACAgQAAxkBAAJQzmIZo8u3pHF8ulLUGT7dUeIjAAF78QACVQADjRtGJ-yIezShSzCbHgQ")
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
