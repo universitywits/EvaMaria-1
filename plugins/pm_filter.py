@@ -400,6 +400,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             caption=f_caption,
             protect_content=True if ident == 'checksubp' else False
         )
+    elif query.data == "tip2": 
+        await query.answer(f" • ബ്രോ ഇതിലല്ല 😃 \n\n • താഴെ വരുന്ന മൂവി ലിസ്റ്റിലാണ് ഞെക്കേണ്ടത്😁",show_alert=True)
+
+#boutton new add akkiye
     elif query.data == "pages":
         await query.answer()
     elif query.data == "start":
@@ -667,7 +671,7 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text="⭕️ 𝗝𝗢𝗜𝗡 𝗠𝗬 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 ⭕️",url="https://t.me/moviesupdateck")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(text=f"🔮 {msg.text} ",callback_data="help")]
+            [InlineKeyboardButton(text=f"🔮 {msg.text} ",callback_data="tip2")]
         )
     else:
         btn.append(
@@ -677,7 +681,7 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text="⭕️ 𝗝𝗢𝗜𝗡 𝗠𝗬 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 ⭕️",url="https://t.me/moviesupdateck")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(text=f"🔮 {msg.text} ",callback_data="help")]
+            [InlineKeyboardButton(text=f"🔮 {msg.text} ",callback_data="tip2")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
