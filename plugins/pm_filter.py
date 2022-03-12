@@ -674,7 +674,7 @@ async def auto_filter(client, msg, spoll=False):
         )
         btn.insert(0,
             [InlineKeyboardButton(text=f"🔮 {msg.text} ",callback_data="tip2"),
-             InlineKeyboardButton(text=f"📁 {total_results} ",callback_data="tip1")]
+             InlineKeyboardButton(text=f"🗂 {total_results} ",callback_data="tip1")]
         )
     else:
         btn.append(
@@ -685,7 +685,7 @@ async def auto_filter(client, msg, spoll=False):
         )
         btn.insert(0,
             [InlineKeyboardButton(text=f"🔮 {msg.text} ",callback_data="tip2"),
-             InlineKeyboardButton(text=f"📁 {total_results} ",callback_data="tip1")]
+             InlineKeyboardButton(text=f"🗂 {total_results} ",callback_data="tip1")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
@@ -722,7 +722,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"""Found Results For Your Requst: <code>{search}</code>
+        cap = f"""Found {total_results} Results For Your Requst: <code>{search}</code>
 
 ⭕𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗢𝗨𝗥 𝗥𝗘𝗤𝗨𝗘𝗦𝗧𝗘𝗗 𝗠𝗢𝗩𝗜𝗘𝗦👇🏻"""
     if imdb and imdb.get('poster'):
